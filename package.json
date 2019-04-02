@@ -1,0 +1,31 @@
+{
+  "name": "image-uploader-photo-gallery",
+  "version": "1.0.0",
+  "description": "This is a quick image uploader that creates an image gallery.",
+  "main": "app.js",
+  "dependencies": {
+    "multer": "^1.4.1",
+    "node": "^11.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jgobeille/image-uploader-photo-gallery.git"
+  },
+  "keywords": [
+    "image-uploader",
+    "multer",
+    "CSSGrid",
+    "node",
+    "Javascript"
+  ],
+  "author": "Jamie Gobeille",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jgobeille/image-uploader-photo-gallery/issues"
+  },
+  "homepage": "https://github.com/Jgobeille/image-uploader-photo-gallery#readme"
+}
