@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const app        = express();
 
 
+
 //EJS view engine middleware
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -25,3 +26,4 @@ module.exports = app;
 
 app.listen(3000);
     console.log("The app has started!");
+
