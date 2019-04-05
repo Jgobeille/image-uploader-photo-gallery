@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>
@@ -6,15 +7,24 @@
         <meta charset="UTF-8">
     <title>QR Codes</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="photo-gallery.css">
+    <link rel="stylesheet" type="text/css" href="photo-gallery.css">
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
     </head>
 
     <body>
-        <div class="uploader">
-            <h1>Upload Images</h1>
-            <button>upload</button>
-        </div>
+        <h1>
+            Upload Image
+        </h1>
+        <form method ="POST" action="send" role="form" enctype="multipart/form-data">
+            <div class="upload-btn-wrapper">
+                <button class="btn">Upload a file</button>
+                <input type="file" name="myfile" />
+            </div>
+            <div class="upload-btn-wrapper">
+                <input type="submit" name="attachFile" />
+            </div>
+        </form>
+
         <div class ="gallery">
             <h1>Image Gallery</h1>
 
