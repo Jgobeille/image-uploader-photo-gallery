@@ -4,12 +4,13 @@ const multer     = require('multer');
 const express    = require("express");
 const bodyParser = require('body-parser');
 const app        = express();
+const path       = require('path');
 
 
 
 //EJS view engine middleware
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("./public"));
 app.set('views',__dirname+'/views');
 
 // parse application/x-www-form-urlencoded
@@ -22,9 +23,22 @@ app.get('/', function(req, res){
     res.render("photo-gallery");
 });
 
+app.post('/upload', (req, res) => {
+    upload(req, res, (err) => {
+      if(err){
+        res.render('photo-gallery', {
+          msg: err
+        });
+      } else {
+        console.log(req.file);
+        res.send('test');
+      }
+    });
+});
 
 
 //multer
+//const storage is the var that will be the setup for where we will be storing our photos
 const storage = multer.diskStorage({
     destination: './public/uploads/',
     filename: function(req, file, cb){
@@ -34,12 +48,12 @@ const storage = multer.diskStorage({
   
   //init upload
   const upload = multer({
-    storage: storage,
+    storage: storage, // storage will be the staorge engine called out above
     limits:{filesize: 10000},
     filefilter: function(req, file, cb){
       checkFileType(file, cb);
     }
-  }).single('attachFile');
+  }).single('myFile');
   
   //check file type
   function checkFileType(file, cb){
@@ -57,9 +71,9 @@ const storage = multer.diskStorage({
     }
   }
   
-
+const port = 3000;
 module.exports = app;
 
-app.listen(3000);
-    console.log("The app has started!");
+app.listen(port, () => console.log(`The app has started on port ${port}`));
+    
 
